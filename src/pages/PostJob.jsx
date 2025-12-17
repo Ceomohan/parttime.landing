@@ -1,56 +1,77 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import "../styles.css";
 
 export default function PostJob() {
-  const [title, setTitle] = useState('')
-  const [budget, setBudget] = useState('')
-  const [desc, setDesc] = useState('')
+  const [title, setTitle] = useState('');
+  const [budget, setBudget] = useState('');
+  const [desc, setDesc] = useState('');
 
-  function submit(e) {
-    e.preventDefault()
-    alert('Job posted (mock). Title: ' + title)
-    setTitle('')
-    setBudget('')
-    setDesc('')
-  }
+  const submit = (e) => {
+    e.preventDefault();
+    alert(`Job posted (mock). Title: ${title}`);
+    setTitle('');
+    setBudget('');
+    setDesc('');
+  };
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-12 animate-fadeInUp">
-      <h1 className="text-2xl font-bold animate-fadeInUp">Post a Job</h1>
+    <div className="max-w-3xl mx-auto px-6 py-12 relative">
+      {/* Floating Cosmic Orbs */}
+      <div className="absolute -top-24 -left-24 w-64 h-64 bg-purple-500/30 rounded-full blur-3xl float-cosmic-slow"></div>
+      <div className="absolute top-32 -right-32 w-64 h-64 bg-pink-500/30 rounded-full blur-3xl float-cosmic-fast"></div>
+
+      <h1 className="text-3xl md:text-4xl font-extrabold text-center text-cosmic animate-fadeUp">
+        Post a Job
+      </h1>
+
       <form
         onSubmit={submit}
-        className="mt-6 space-y-4 bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition duration-500 animate-fadeInUp delay-200"
+        className="mt-8 space-y-6 card-cosmic animate-fadeUp delay-1"
       >
-        <div className="animate-fadeInUp delay-300">
-          <label className="text-sm font-medium">Job Title</label>
+        {/* Job Title */}
+        <div className="animate-fadeUp delay-2">
+          <label className="block text-sm font-semibold text-gray-300 mb-2">Job Title</label>
           <input
             value={title}
-            onChange={e => setTitle(e.target.value)}
-            className="w-full mt-2 px-3 py-2 border rounded-md focus:ring-2 focus:ring-pt-pink transition"
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Enter job title"
+            className="w-full px-4 py-2 rounded-lg border border-gray-600 bg-gray-900 text-white focus:ring-2 focus:ring-pt-pink transition"
           />
         </div>
-        <div className="animate-fadeInUp delay-400">
-          <label className="text-sm font-medium">Budget</label>
+
+        {/* Budget */}
+        <div className="animate-fadeUp delay-3">
+          <label className="block text-sm font-semibold text-gray-300 mb-2">Budget</label>
           <input
             value={budget}
-            onChange={e => setBudget(e.target.value)}
-            className="w-full mt-2 px-3 py-2 border rounded-md focus:ring-2 focus:ring-pt-mint transition"
+            onChange={(e) => setBudget(e.target.value)}
+            placeholder="Enter budget"
+            className="w-full px-4 py-2 rounded-lg border border-gray-600 bg-gray-900 text-white focus:ring-2 focus:ring-pt-mint transition"
           />
         </div>
-        <div className="animate-fadeInUp delay-500">
-          <label className="text-sm font-medium">Description</label>
+
+        {/* Description */}
+        <div className="animate-fadeUp delay-4">
+          <label className="block text-sm font-semibold text-gray-300 mb-2">Description</label>
           <textarea
             value={desc}
-            onChange={e => setDesc(e.target.value)}
+            onChange={(e) => setDesc(e.target.value)}
             rows={5}
-            className="w-full mt-2 px-3 py-2 border rounded-md focus:ring-2 focus:ring-pt-pink transition"
+            placeholder="Describe the job in detail"
+            className="w-full px-4 py-2 rounded-lg border border-gray-600 bg-gray-900 text-white focus:ring-2 focus:ring-pt-pink transition"
           />
         </div>
-        <div className="flex justify-end animate-fadeInUp delay-600">
-          <button className="px-4 py-2 rounded-md bg-pt-mint text-white hover:bg-pt-dark-mint transition animate-pulseScale">
+
+        {/* Submit Button */}
+        <div className="flex justify-center animate-fadeUp delay-5">
+          <button
+            type="submit"
+            className="px-6 py-3 rounded-xl button-cosmic text-lg font-semibold hover:scale-105 transition transform"
+          >
             Post Job
           </button>
         </div>
       </form>
     </div>
-  )
+  );
 }
