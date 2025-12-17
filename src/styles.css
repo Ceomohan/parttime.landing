@@ -210,3 +210,52 @@ body.light nav {
   background: rgba(255,255,255,0.65);
   color: #1f2937;
 }
+
+
+/* ================= THEME OVERRIDES (ADD ONLY) ================= */
+
+body.dark {
+  background: radial-gradient(circle at top, #1b0037 0%, #3a0f55 50%, #0b0031 100%);
+  color: #f0f0f5; /* normal text color */
+}
+
+body.light {
+  background: radial-gradient(circle at top, #fdfcff 0%, #e9d5ff 45%, #dbeafe 100%);
+  color: #1f2937; /* normal text color */
+}
+
+/* Text adjustments for light mode */
+body.light .text-cosmic {
+  background: linear-gradient(90deg, #4b0082, #9333ea, #2563eb, #db2777);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Optional: Set default text color for all elements in light mode */
+body.light p,
+body.light span,
+body.light h1,
+body.light h2,
+body.light h3,
+body.light h4,
+body.light h5,
+body.light h6,
+body.light a,
+body.light li,
+body.light label {
+  color: #1f2937; /* dark text for readability in light mode */
+}
+
+/* Cards in light mode */
+body.light .card-cosmic {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(0,0,0,0.08);
+  color: #111827;
+}
+
+/* Footer / navbar readability */
+body.light footer,
+body.light nav {
+  background: rgba(255,255,255,0.65);
+  color: #1f2937;
+}
